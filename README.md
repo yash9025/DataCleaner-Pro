@@ -1,6 +1,16 @@
-﻿# DataCleaner Pro — Enterprise Data Cleaning & Executive Reporting Tool
+﻿# ⚡ DataCleaner Pro — Enterprise Data Cleaning & Executive Reporting Tool
 
-An automated Python data engineering and reporting application packaged as a standalone Windows executable (`.exe`). It eliminates manual spreadsheet preparation by ingesting raw, messy business datasets (CSV/Excel), executing intelligent data-cleaning routines, and compiling an executive multi-tab Excel workbook complete with KPI dashboard cards, category summaries, and a data integrity audit trail.
+[![Release](https://img.shields.io/github/v/release/yash9025/DataCleaner-Pro?color=blue&label=Download%20.exe)](https://github.com/yash9025/DataCleaner-Pro/releases/latest)
+[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+An automated Python data engineering and reporting application packaged as a **standalone Windows executable (`.exe`)**. It eliminates manual spreadsheet preparation by ingesting raw, messy business datasets (CSV/Excel), executing intelligent cleaning routines, and compiling an executive multi-tab Excel workbook complete with KPI dashboard cards, category summaries, and a data integrity audit trail.
+
+---
+
+## 📥 Direct Download (No Python Required)
+👉 **[Download DataCleaner_Pro.exe (v1.0.0)](https://github.com/yash9025/DataCleaner-Pro/releases/download/v1.0.0/DataCleaner_Pro.exe)**  
+*Simply download, double-click, and run on any Windows machine.*
 
 ---
 
@@ -24,25 +34,25 @@ Manual cleaning in Excel typically takes business analysts **30 to 45 minutes pe
 
 ### 2. Intelligent Cleaning Pipeline
 - **Smart Currency & Numeric Stripper**: Regex-based parser that handles currency symbols (`$`, `€`, `£`), thousands separators, accounting negatives (`(123.45)`), and missing markers (`N/A`, `-`), imputing missing values via statistical median.
-- **Multi-Format Date Normalization**: Harmonizes varied international and US date formats into standard ISO `YYYY-MM-DD`.
-- **Text & Casing Sanitization**: Trims leading/trailing whitespace and standardizes key dimension fields into Proper Title Case.
+- **Multi-Format Date Normalization**: Harmonizes diverse international and US date formats into standard ISO `YYYY-MM-DD`.
+- **Text & Casing Sanitization**: Trims extra spaces and applies proper Title Case to categorical dimensions (`Segment`, `Category`, `Region`).
 - **Transaction-Key Deduplication**: Detects and purges duplicate orders using business composite keys (`Order ID` + `Product ID`).
 - **Null Value Imputation**: Ensures zero orphaned nulls across numerical and categorical fields.
 
 ### 3. Executive-Ready Multi-Tab Excel Workbook (`reporter.py`)
-Built with `openpyxl` with presentation-grade formatting:
+Built with `openpyxl` with presentation-grade corporate styling:
 - **Tab 1: `Executive Summary`**:
   - 4 Executive KPI metric tiles: Total Cleaned Revenue, Total Profit, Profit Margin %, and Unique Order Count.
-  - Formatted Category Performance breakdown table with Excel formulas (`SUM`, margin ratios).
+  - Formatted Category Performance breakdown table with Excel formulas (`SUM`, profit ratio).
 - **Tab 2: `Cleaned Data`**:
   - Styled navy headers (`#1F4E79`), zebra striping, currency/date format codes, and automatic column auto-fit.
   - Native Excel Auto-Filters enabled across all columns.
 - **Tab 3: `Cleaning Audit Log`**:
   - Full data integrity certificate: row count delta, deduplication count, null reduction, and exact execution duration.
 
-### 4. Interactive Desktop GUI & Standalone Distribution
-- Built with Python's native `tkinter` / `ttk` with an embedded dark execution console.
-- Packaged using **PyInstaller** into a standalone `.exe` that non-technical business colleagues can run with zero Python installation required.
+### 4. Interactive Desktop GUI & Web Interface
+- **Desktop Application (`main.py`)**: Built with Python's native `tkinter` with an embedded dark execution console and 1-click report opener.
+- **Web Application (`web_app.py`)**: Built with Streamlit for cloud deployment.
 
 ---
 
@@ -55,20 +65,19 @@ Tested on a real-world benchmark dataset based on the **Global Superstore Sales*
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run Locally
 
 ### Option A: Using the Standalone `.exe`
-Double-click `dist/DataCleaner_Pro/DataCleaner_Pro.exe` (or `DataCleaner_Pro.exe` single-file).
-Select your messy file and click **Run Automation Pipeline**.
+Download [`DataCleaner_Pro.exe`](https://github.com/yash9025/DataCleaner-Pro/releases/download/v1.0.0/DataCleaner_Pro.exe) and double-click to run.
 
 ### Option B: From Python CLI
 ```powershell
 python main.py --file data/messy_sales_data.xlsx
 ```
 
-### Option C: From Python GUI
+### Option C: Launch Web App
 ```powershell
-python main.py
+streamlit run web_app.py
 ```
 
 ---
