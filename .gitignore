@@ -1,0 +1,19 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+
+# PyInstaller build artifacts
+build/
+*.spec
+
+# Distribution (except standalone exe if desired, but best on Releases)
+dist/
+
+# OS specific
+Thumbs.db
+.DS_Store
